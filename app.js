@@ -14,7 +14,12 @@ console.log("I am node express server")
 routes_handlers = {
 index_page_handler : (_, res)=>{
     res.send("Thanks for reaching out to node express server")
+},
+home_page_handler : (_,res)=>{
+    res.sendFile(__dirname +"/static/home.html")
 }
 }
 
 express_app.get('/', routes_handlers.index_page_handler)
+express_app.get('/home', routes_handlers.home_page_handler)
+
