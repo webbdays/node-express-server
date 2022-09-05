@@ -1,25 +1,15 @@
-
-// let routes_handlers = require("./routes_handlers");
+require('dotenv').config()
+let route_handlers = require("./routes/webpage-routes");
 
 let express = require("express");
 
 let express_app = express()
 
-let DEFAULT_PORT = "80"
+let DEFAULT_PORT = process.env.DEFAULT_PORT
+console.log(process.mainModule.children)
 express_app.listen(DEFAULT_PORT)
-console.log("I am node express server")
+console.log("I am a node express server here.");
 
-
-// handlers
-routes_handlers = {
-index_page_handler : (_, res)=>{
-    res.send("Thanks for reaching out to node express server")
-},
-home_page_handler : (_,res)=>{
-    res.sendFile(__dirname +"/static/home.html")
-}
-}
-
-express_app.get('/', routes_handlers.index_page_handler)
-express_app.get('/home', routes_handlers.home_page_handler)
+express_app.get('/', route_handlers.index_page_handler )
+express_app.get('/home', route_handlers.home_page_handler)
 
