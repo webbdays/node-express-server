@@ -5,6 +5,9 @@ let express = require("express");
 
 let express_app = express()
 
+
+express_app.use("/static", express.static("./static"))
+
 let DEFAULT_PORT = process.env.DEFAULT_PORT
 console.log(process.mainModule.children)
 express_app.listen(DEFAULT_PORT)
